@@ -32,19 +32,15 @@ $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::A
         <div class="calendar">
             <div class="calendar__nav">
                 <div class="calendar__date">
-                    <div class="calendar__m">July</div>
-                    <div class="calendar__y">2022</div>
+                    <div class="calendar__m"></div>
+                    <div class="calendar__y"></div>
                 </div>
                 <div class="calendar__nav--arrows">
-                    <button class="calendar__l" type="button" onclick="prevMonth()"><</button>
-                    <button class="calendar__r" type="button" onclick="nextMonth()">></button>
+                    <button class="calendar__arrow" type="button" onclick="prevMonth()"><</button>
+                    <button class="calendar__arrow" type="button" onclick="nextMonth()">></button>
                 </div>
             </div>
-            <table class="calendar__content">
-            </table>
-            <script>
-                eventPopUp();
-            </script>
+            <table class="calendar__content"></table>
         </div>
         <div class="events">
             <h2>Events</h2>
