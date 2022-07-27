@@ -8,12 +8,6 @@ function alertPopUp(day) {
     else alert(`Today is the ${day}th of July!`);
 }
 
-function createTable(limit) {
-    var tab = document.getElementsByClassName("calendar__content");
-
-
-}
-
 function eventPopUp() {
     document.querySelectorAll('.day').forEach(item => {
         item.addEventListener('click', event => {
@@ -22,16 +16,51 @@ function eventPopUp() {
     })
 }
 
-var mon = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-today = new Date();
-var currentM = today.getMonth();
-var currentY = today.getFullYear();
+let today = new Date();
+let currentD = today.getDate();
+let currentM = today.getMonth();
+let currentY = today.getFullYear();
 
-function prevMonth(){
+let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+if (currentM == 1) {
+    febDays = (currentY % 4 == 0) ? 29 : 28;
+}
+let monthDays = ["31", "" + febDays + "", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
+
+function createCalendar() {
+
+    let i = 1;
+    let tomorrow = new Date(nextMonth() + ' 1,' + currentY);
+    let wd = tomorrow.getDay();
+    let num = monthDays[currentM];
+
+    let tableHTML = "";
+    tableHTML += "<table></table><thead><tr><th>Mon</th><th>Tue</th><th>Wen</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>";
+    tableHTML += "<tbody><tr>";
+    while (i <= num) {
+        if (wd > 6) {
+            wd = 0;
+            tableHTML += "</tr><tr>";
+        }
+
+        if (i == currentD) {
+            tableHTML += "<td class=\"day today\" >" + i + "</td>";
+        } else {
+            tableHTML += "<td class=\"day\" >" + i + "</td>";
+        }
+        wd++;
+        i++;
+    }
+    tableHTML += "</tr></tbody></table>";
+    document.getElementsByClassName("content__container").innerHTML=tableHTML;
+    alert("hai");
+}
+
+function prevMonth() {
     currentY = (currentM === 0) ? currentY - 1 : currentY;
-    currentM = (currentM === 0) ? 11: currentM -1;
+    currentM = (currentM === 0) ? 11 : currentM - 1;
     const divM = document.querySelector(".calendar__m");
-    divM.innerHTML = mon[currentM];
+    divM.innerHTML = monthNames[currentM];
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = currentY;
 }
@@ -40,7 +69,7 @@ function nextMonth() {
     currentY = (currentM === 11) ? currentY + 1 : currentY;
     currentM = (currentM + 1) % 12;
     const divM = document.querySelector(".calendar__m");
-    divM.innerHTML = mon[currentM];
+    divM.innerHTML = monthNames[currentM];
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = currentY;
 }
