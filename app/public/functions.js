@@ -1,23 +1,14 @@
-document.addEventListener('DOMContentLoaded', function (){
-    document.querySelectorAll('.day').forEach(item => {
-        item.addEventListener('click', event => {
-            alert(event.target.innerText);
-        })
-    })
-}, false);
+today = new Date();
+currentD = today.getDate();
+currentM = today.getMonth();
+currentY = today.getFullYear();
+monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+monthDays = ["31", "" + (currentY % 4 == 0) ? 28 : 29 + "", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
 
-document.addEventListener('DOMContentLoaded', function (){
-    today = new Date();
-    currentD = today.getDate();
-    calendarM = currentM = today.getMonth();
-    calendarY = currentY = today.getFullYear();
-
-    monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    monthDays = ["31", "" + ((calendarY % 4 == 0) ? 29 : 28) + "", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
-
+function createCalendar() {
     let i = 1;
     let wd = 0;
-    let num = monthDays[calendarM];
+    let num = monthDays[currentM];
     tableHTML = "";
 
     tableHTML += "<thead><tr><th>Mon</th><th>Tue</th><th>Wen</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>";
@@ -28,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function (){
             tableHTML += "</tr><tr>";
         }
 
-        if (i == currentD) {
+        if (i == currentD && currentM == today.getMonth()) {
             tableHTML += "<td class=\"day today\" >" + i + "</td>";
         } else {
             tableHTML += "<td class=\"day\" >" + i + "</td>";
@@ -38,18 +29,15 @@ document.addEventListener('DOMContentLoaded', function (){
     }
     tableHTML += "</tr></tbody>";
     document.querySelector(".calendar__content").insertAdjacentHTML("beforeend", tableHTML);
-}, false);
+}
+
+document.addEventListener('DOMContentLoaded', createCalendar, false);
 
 document.addEventListener('DOMContentLoaded', function () {
     const divM = document.querySelector(".calendar__m");
     divM.innerHTML = monthNames[currentM];
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = currentY;
-}, false);
-
-document.addEventListener('DOMContentLoaded', function () {
-    calendarM = document.querySelector(".calendar__m").innerHTML;
-    calendarY = document.querySelector(".calendar__y").innerHTML;
 }, false);
 
 function prevMonth() {
@@ -60,6 +48,9 @@ function prevMonth() {
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = currentY;
 
+    const tHTML = document.querySelector(".calendar__content");
+    tHTML.innerHTML = "";
+    createCalendar();
 }
 
 function nextMonth() {
@@ -70,5 +61,16 @@ function nextMonth() {
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = currentY;
 
+    const tHTML = document.querySelector(".calendar__content");
+    tHTML.innerHTML = "";
+    createCalendar();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.day').forEach(item => {
+        item.addEventListener('click', event => {
+            alert(event.target.innerText);
+        })
+    })
+}, false);
 
