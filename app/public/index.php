@@ -3,13 +3,13 @@
 
 $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-//$sql = "SELECT * FROM users";
+//$sql = "SELECT * FROM reservations";
 //$res = $pdo->query($sql);
 //while ($row = $res->fetch()) {
-//    echo " " . $row["user_id"] . " " . $row["user_name"] . " " . $row["user_email"] . "<br>";
+//   echo " " . $row["res_id"] . " " . $row["res_title"] . " " . $row["res_date"] . " " . $row["res_time"] . "<br>";
 //}
 //
-//var_dump($pdo, $sql);
+////var_dump($pdo, $sql, $res, $row);
 ?>
 <!doctype html>
 <html lang="en">
