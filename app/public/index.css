@@ -59,6 +59,7 @@ h1 {
 
 .calendar__content {
     text-align: center;
+    margin: 0 10px 10px 10px;
 }
 
 .calendar__date {
@@ -82,7 +83,7 @@ h1 {
 
 }
 .today {
-    background-color: #6a58a0;
+    color: white;
 }
 
 .events, ul {

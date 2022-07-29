@@ -1,3 +1,6 @@
+<?php
+    include 'connection.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -57,7 +60,7 @@
         <?php
         //echo "<h1>This is served with docker</h1>";
 
-        $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        //$pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
 //        $sql = "SELECT * FROM reservations";
 //        $res = $pdo->query($sql);

@@ -10,11 +10,10 @@ let calendarY = currentY;
 function createCalendar() {
 
     let febDays;
-    if(calendarY % 4 === 0){
-        febDays=29;
-    }
-    else{
-        febDays=28;
+    if (calendarY % 4 === 0) {
+        febDays = 29;
+    } else {
+        febDays = 28;
     }
     let monthDays = ["31", "" + febDays + "", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
 
@@ -32,17 +31,18 @@ function createCalendar() {
         }
 
         if (i === currentD && calendarM === currentM && calendarY === currentY) {
-            tableHTML += "<td data-date="+calendarY+"-"+(calendarM+1)+"-"+i+" class=\"day today\" >" + i + "</td>";
+            tableHTML += "<td data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day today\" >" + i + "</td>";
         } else {
-            tableHTML += "<td data-date="+calendarY+"-"+(calendarM+1)+"-"+i+" class=\"day\" >" + i + "</td>";
+            tableHTML += "<td data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day\" >" + i + "</td>";
         }
         wd++;
         i++;
     }
     tableHTML += "</tr></tbody>";
     document.querySelector(".calendar__content").insertAdjacentHTML("beforeend", tableHTML);
-    console.log(calendarM+" "+calendarY+" "+num+" "+monthDays[1]+" "+febDays);
+    console.log(calendarM + " " + calendarY + " " + num + " " + monthDays[1] + " " + febDays);
 }
+
 document.addEventListener('DOMContentLoaded', createCalendar, false);
 
 function loadMY() {
@@ -51,6 +51,7 @@ function loadMY() {
     const divY = document.querySelector(".calendar__y");
     divY.innerHTML = calendarY;
 }
+
 document.addEventListener('DOMContentLoaded', loadMY, false);
 
 function prevMonth() {
@@ -80,4 +81,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 }, false);
+
+function createDate(day, month, year) {
+    if (day < 10) {
+        day = "0" + day;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+    return year+"-"+month+"-"+day;
+}
 
