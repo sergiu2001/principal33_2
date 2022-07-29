@@ -1,16 +1,3 @@
-<?php
-//echo "<h1>This is served with docker</h1>";
-
-$pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-//$sql = "SELECT * FROM reservations";
-//$res = $pdo->query($sql);
-//while ($row = $res->fetch()) {
-//   echo " " . $row["res_id"] . " " . $row["res_title"] . " " . $row["res_date"] . " " . $row["res_time"] . "<br>";
-//}
-//
-////var_dump($pdo, $sql, $res, $row);
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -67,6 +54,19 @@ $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::A
                 </li>
             </ul>
         </div>
+        <?php
+        //echo "<h1>This is served with docker</h1>";
+
+        $pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+//        $sql = "SELECT * FROM reservations";
+//        $res = $pdo->query($sql);
+//        while ($row = $res->fetch()) {
+//            echo " " . $row["res_id"] . " " . $row["res_title"] . " " . $row["res_date"] . " " . $row["res_time"] . "<br>";
+//        }
+
+        //var_dump($pdo, $sql, $res, $row);
+        ?>
     </div>
 </main>
 </body>
