@@ -11,7 +11,7 @@
     <script src="functions.js"></script>
 </head>
 
-<body">
+<body>
 <header>
     <h1>Calendar</h1>
 </header>
@@ -35,7 +35,6 @@
             <?php
                 include 'showRes.php';
             ?>
-            </ul>
         </div>
     </div>
 </main>

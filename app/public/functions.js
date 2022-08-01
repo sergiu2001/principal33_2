@@ -76,7 +76,7 @@ function nextMonth() {
 function clickDay() {
     let resDate;
     document.querySelectorAll('.day').forEach(item => {
-        item.addEventListener('click', event => {
+        item.addEventListener('click', () => {
             resDate = item.getAttribute('data-date');
 
             jQuery.ajax({
