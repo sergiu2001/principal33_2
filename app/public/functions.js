@@ -31,16 +31,15 @@ function createCalendar() {
         }
 
         if (i === currentD && calendarM === currentM && calendarY === currentY) {
-            tableHTML += "<td data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day today\" >" + i + "</td>";
+            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day today\" >" + i + "</td>";
         } else {
-            tableHTML += "<td data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day\" >" + i + "</td>";
+            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day\" >" + i + "</td>";
         }
         wd++;
         i++;
     }
     tableHTML += "</tr></tbody>";
     document.querySelector(".calendar__content").insertAdjacentHTML("beforeend", tableHTML);
-    console.log(calendarM + " " + calendarY + " " + num + " " + monthDays[1] + " " + febDays);
 }
 
 document.addEventListener('DOMContentLoaded', createCalendar, false);
@@ -74,14 +73,22 @@ function nextMonth() {
     createCalendar();
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function clickDay() {
+    let data;
     document.querySelectorAll('.day').forEach(item => {
         item.addEventListener('click', event => {
-            alert(event.target.innerText);
-        })
-    })
-}, false);
+            data = item.getAttribute('data-date');
+            jQuery.ajax({
+                type: "POST",
+                url: 'showRes.php',
+                dataType: 'json',
+                data: data,
 
+                success: console.log("yes")
+            });
+        })
+    });
+}
 function createDate(day, month, year) {
     if (day < 10) {
         day = "0" + day;
