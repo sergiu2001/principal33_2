@@ -1,6 +1,3 @@
-<?php
-    include 'connection.php';
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendar</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="functions.js"></script>
 </head>
 
@@ -34,42 +32,11 @@
         </div>
         <div class="events">
             <h2>Events</h2>
-            <ul>
-                <li>
-                    <time>8:00</time>
-                    Mani
-                </li>
-                <li>
-                    <time>10:00</time>
-                    Pedi
-                </li>
-                <li>
-                    <time>12:00</time>
-                    Scoate cateaua la plimbare
-                </li>
-                <li>
-                    <time>18:00</time>
-                    Bere cu baietii
-                </li>
-                <li>
-                    <time>20:00</time>
-                    Baga gainile in cotet
-                </li>
+            <?php
+                include 'showRes.php';
+            ?>
             </ul>
         </div>
-        <?php
-        //echo "<h1>This is served with docker</h1>";
-
-        //$pdo = new PDO('mysql:dbname=tutorial;host=mysql', 'tutorial', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-//        $sql = "SELECT * FROM reservations";
-//        $res = $pdo->query($sql);
-//        while ($row = $res->fetch()) {
-//            echo " " . $row["res_id"] . " " . $row["res_title"] . " " . $row["res_date"] . " " . $row["res_time"] . "<br>";
-//        }
-
-        //var_dump($pdo, $sql, $res, $row);
-        ?>
     </div>
 </main>
 </body>

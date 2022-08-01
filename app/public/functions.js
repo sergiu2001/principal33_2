@@ -31,9 +31,9 @@ function createCalendar() {
         }
 
         if (i === currentD && calendarM === currentM && calendarY === currentY) {
-            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day today\" >" + i + "</td>";
+            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i, calendarM + 1, calendarY) + " class=\"day today\" >" + i + "</td>";
         } else {
-            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i,calendarM+1,calendarY) + " class=\"day\" >" + i + "</td>";
+            tableHTML += "<td onclick='clickDay()' data-date=" + createDate(i, calendarM + 1, calendarY) + " class=\"day\" >" + i + "</td>";
         }
         wd++;
         i++;
@@ -74,21 +74,23 @@ function nextMonth() {
 }
 
 function clickDay() {
-    let data;
+    let resDate;
     document.querySelectorAll('.day').forEach(item => {
         item.addEventListener('click', event => {
-            data = item.getAttribute('data-date');
+            resDate = item.getAttribute('data-date');
+
             jQuery.ajax({
                 type: "POST",
                 url: 'showRes.php',
                 dataType: 'json',
-                data: data,
+                data: {'resDate': resDate},
 
                 success: console.log("yes")
             });
         })
     });
 }
+
 function createDate(day, month, year) {
     if (day < 10) {
         day = "0" + day;
@@ -96,6 +98,6 @@ function createDate(day, month, year) {
     if (month < 10) {
         month = "0" + month;
     }
-    return year+"-"+month+"-"+day;
+    return year + "-" + month + "-" + day;
 }
 
