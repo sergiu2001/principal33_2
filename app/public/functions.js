@@ -73,19 +73,18 @@ function nextMonth() {
     createCalendar();
 }
 
+let resDate = createDate(currentD,currentM,currentY);
+
 function clickDay() {
-    let resDate;
     document.querySelectorAll('.day').forEach(item => {
         item.addEventListener('click', () => {
             resDate = item.getAttribute('data-date');
 
-            jQuery.ajax({
-                type: "POST",
-                url: 'showRes.php',
-                dataType: 'json',
-                data: {'resDate': resDate},
-
-                success: console.log("yes")
+            let params = new URLSearchParams();
+            params.append("resDate", resDate);
+            console.log(params);
+            axios.post('/showRes.php',params).then(response => {
+                console.log(response)
             });
         })
     });
