@@ -1,0 +1,32 @@
+.header__wrapper {
+    background-color: #431CA0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px
+}
+
+h1 {
+    padding: 30px 100px;
+    margin: 0;
+    font-size: 50px;
+}
+
+ul {
+    list-style: none;
+    margin: 30px 40px;
+    padding: 0;
+}
+
+.nav__link {
+    color: rgb(220, 228, 253);
+    text-decoration: none;
+    font-size: 50px;
+}
+
+.nav__link:hover {
+    color: #555e8d;
+    transition: 0.5s ease-in-out;
+}

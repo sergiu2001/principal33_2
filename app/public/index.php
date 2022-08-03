@@ -1,5 +1,6 @@
 <?php
-include 'connection.php';
+    include 'connection.php';
+    include 'headertype.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,9 +16,6 @@ include 'connection.php';
 </head>
 
 <body>
-<header>
-    <h1>Calendar</h1>
-</header>
 <main>
     <div class="content__container">
         <div class="calendar">
