@@ -81,7 +81,7 @@ function clickDay() {
             resDate = item.getAttribute('data-date');
 
             let params = new URLSearchParams();
-            params.append("resDate", resDate);
+            params.append('resDate', resDate);
             console.log(params);
             axios.post('/showRes.php',params).then(response => {
                 console.log(response)
@@ -89,7 +89,6 @@ function clickDay() {
         })
     });
 }
-
 function createDate(day, month, year) {
     if (day < 10) {
         day = "0" + day;

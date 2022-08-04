@@ -36,6 +36,7 @@
             <?php
             include 'showRes.php';
             ?>
+
         </div>
     </div>
 </main>

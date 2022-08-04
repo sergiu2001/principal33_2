@@ -4,7 +4,7 @@
     <nav>
         <ul>
             <li>
-                <a href="createpoll.php" class="nav__link">Login</a>
+                <a href="login.php" class="nav__link">Login</a>
             </li>
         </ul>
     </nav>
