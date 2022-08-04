@@ -7,7 +7,7 @@
                 <a href="logout.php" class="nav__link">Logout</a>
             </li>
             <li>
-                <a href="insertRes.php" class="nav__link">Create reservation</a>
+                <a href="insertResform.php" class="nav__link">Create reservation</a>
             </li>
         </ul>
     </nav>

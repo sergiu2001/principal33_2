@@ -5,9 +5,7 @@ global $pdo;
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$email = filter_var( $email, FILTER_SANITIZE_EMAIL );
-
-$sql = "SELECT name, id, email, password, img FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM users WHERE id = 1";
 
 if ($res = $pdo->query($sql)) {
     if ($res->rowCount() === 1) {
@@ -26,7 +24,11 @@ if ($res = $pdo->query($sql)) {
             }
         }
     } else {
-        echo 'Wrong username';
+        var_dump($res->rowCount());
+        var_dump($email);
+        var_dump($_POST['email']);
+        var_dump($sql);
+        var_dump($res);
     }
 } else {
     echo 'ERROR: Could not able to execute ' . $sql . $pdo->error;

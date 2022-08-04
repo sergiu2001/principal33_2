@@ -9,7 +9,7 @@ $img = $_POST['image'];
 
 $try = "SELECT * FROM users WHERE email='$email'";
 $res = $pdo->query($try);
-if ($res->rowCount())
+if ($res->fetchColumn())
     header("Location:index.php");
 else {
     $sql = "INSERT INTO users (name, email, password, img) VALUES ('$name', ' $email', '$pass','$img')";

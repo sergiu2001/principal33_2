@@ -1,17 +1,16 @@
 <<?php
-session_start();
 include 'connection.php';
 global $pdo;
 
 $res_title = $_POST['title'];
 $res_date = $_POST['date'];
 $res_time = $_POST['time'];
+$user_id = 1;
 
-$sql = "INSERT INTO reservations (title, date_start, time) VALUES ('$res_title', ' $res_date', '$res_time ')";
+$sql = "INSERT INTO reservations (title,user_id, date_start, time) VALUES ('$res_title','$user_id', '$res_date', '$res_time')";
 $res = $pdo->query($sql);
 if ($res === TRUE) {
-    echo "New record created successfully";
+    header("Location: index.php");
 } else {
-    echo "Error: " . $sql . "<br>" . $pdo->error;
+    echo $pdo->error;
 }
-session_write_close();
