@@ -86,3 +86,7 @@ body {
     list-style-type: none;
     padding-bottom: 10px;
 }
+
+h3 {
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 <?php
-    include 'connection.php';
-    include 'headertype.php';
+include 'connection.php';
+include 'headertype.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendar</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="formstyle.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="functions.js"></script>
 </head>
@@ -36,7 +37,6 @@
             <?php
             include 'showRes.php';
             ?>
-
         </div>
     </div>
 </main>

@@ -4,7 +4,10 @@
     <nav>
         <ul>
             <li>
-                <a href="login.php" class="nav__link">Login</a>
+                <a href="loginform.php" class="nav__link">Login</a>
+            </li>
+            <li>
+                <a href="signupform.php" class="nav__link">Signup</a>
             </li>
         </ul>
     </nav>
