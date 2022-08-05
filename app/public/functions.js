@@ -73,22 +73,23 @@ function nextMonth() {
     createCalendar();
 }
 
-let resDate = createDate(currentD,currentM,currentY);
+let resDate = createDate(currentD, currentM, currentY);
 
 function clickDay() {
     document.querySelectorAll('.day').forEach(item => {
         item.addEventListener('click', () => {
             resDate = item.getAttribute('data-date');
 
-            let params = new URLSearchParams();
+            let params = new FormData();
             params.append('resDate', resDate);
-            console.log(params);
-            axios.post('/showRes.php',params).then(response => {
+            console.log(params.getAll('resDate'));
+            axios.post('showRes.php', params).then(response => {
                 console.log(response)
             });
         })
     });
 }
+
 function createDate(day, month, year) {
     if (day < 10) {
         day = "0" + day;

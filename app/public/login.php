@@ -11,7 +11,7 @@ if ($res = $pdo->query($sql)) {
     if ($res->rowCount() === 1) {
         while ($row = $res->fetch()) {
             session_start();
-            $_SESSION['logat'] = "ouies";
+            $_SESSION['login_key'] = "ouies";
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
             session_write_close();
