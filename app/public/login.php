@@ -5,7 +5,7 @@ global $pdo;
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM users WHERE id = 1";
+$sql = "SELECT * FROM users WHERE email LIKE '%$email%'";
 
 if ($res = $pdo->query($sql)) {
     if ($res->rowCount() === 1) {
@@ -17,18 +17,14 @@ if ($res = $pdo->query($sql)) {
             session_write_close();
 
             $hash = $row['password'];
-            if(password_verify($password, $hash)) {
+            if (password_verify($password, $hash)) {
                 header("Location: index.php");
             } else {
                 echo 'Wrong password';
             }
         }
     } else {
-        var_dump($res->rowCount());
-        var_dump($email);
-        var_dump($_POST['email']);
-        var_dump($sql);
-        var_dump($res);
+
     }
 } else {
     echo 'ERROR: Could not able to execute ' . $sql . $pdo->error;
