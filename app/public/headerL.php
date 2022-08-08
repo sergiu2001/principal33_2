@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="headerstyle.css">
 <header class="header__wrapper">
-    <h1>Calendar</h1>
+    <h1><a href="index.php">Calendar</a></h1>
     <nav>
         <ul>
             <li>
