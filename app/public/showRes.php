@@ -4,6 +4,7 @@ global $pdo;
 echo "here";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
+        header('Content-Type: application/json; charset=utf-8');
         echo json_encode([
             'resDate' => $_POST['resDate'],
             'success' => true
